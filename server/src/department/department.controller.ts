@@ -34,7 +34,7 @@ export class DepartmentController {
     });
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   async deleteDepartment(@Param('id') id: string): Promise<Department> {
     return await this.departmentService.deleteDepartment({ id: Number(id) });
   }
