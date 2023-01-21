@@ -46,22 +46,4 @@ export class EmployeeService {
       data: employee,
     });
   }
-
-  // async addEmployee(emplo: AddDepartmentDTO): Promise<Department> {
-  //   return await this.prismaService.department.create({
-  //     data: department,
-  //   });
-  // }
-  //
-  // async deleteDepartment(
-  //   where: Prisma.DepartmentWhereUniqueInput,
-  // ): Promise<Department | null> {
-  //   const department = await this.prismaService.department.delete({ where });
-  //
-  //   if (!department) {
-  //     throw new DepartmentNotFoundException(where.id);
-  //   }
-  //
-  //   return department;
-  // }
 }

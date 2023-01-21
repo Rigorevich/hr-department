@@ -32,7 +32,6 @@ let DepartmentController = class DepartmentController {
     async deleteDepartment(id) {
         return await this.departmentService.deleteDepartment({ id: Number(id) });
     }
-    async getTopFiveDepartment() { }
     async getDepartmentById(id) {
         return await this.departmentService.department({ id: Number(id) });
     }
@@ -77,12 +76,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DepartmentController.prototype, "deleteDepartment", null);
 __decorate([
-    (0, common_1.Get)('top'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], DepartmentController.prototype, "getTopFiveDepartment", null);
-__decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -96,7 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DepartmentController.prototype, "getAllDepartments", null);
 __decorate([
-    (0, common_1.Get)('filtered-departments/:searchString'),
+    (0, common_1.Get)('filtered/:searchString'),
     __param(0, (0, common_1.Param)('searchString')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

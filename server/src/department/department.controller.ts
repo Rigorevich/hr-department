@@ -39,9 +39,6 @@ export class DepartmentController {
     return await this.departmentService.deleteDepartment({ id: Number(id) });
   }
 
-  @Get('top')
-  async getTopFiveDepartment() {}
-
   @Get(':id')
   async getDepartmentById(@Param('id') id: string): Promise<Department> {
     return await this.departmentService.department({ id: Number(id) });
@@ -52,7 +49,7 @@ export class DepartmentController {
     return await this.departmentService.departments({});
   }
 
-  @Get('filtered-departments/:searchString')
+  @Get('filtered/:searchString')
   async getFilteredDepartments(
     @Param('searchString') searchString: string,
   ): Promise<Department[]> {

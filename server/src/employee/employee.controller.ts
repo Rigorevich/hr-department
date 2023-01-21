@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
 import { AddEmployeeDTO } from './dto/employee.dto';
-import { Employee } from '@prisma/client';
+import { Department, Employee } from '@prisma/client';
 
 @Controller('employee')
 export class EmployeeController {
@@ -17,12 +17,23 @@ export class EmployeeController {
     return await this.employeeService.staff({});
   }
 
-  @Get('department-staff/:departmentId')
+  @Get('staff/:departmentId')
   async getDepartmentStaff(
     @Param('departmentId') departmentId: string,
   ): Promise<Employee[]> {
     return await this.employeeService.departmentStaff({
       departmentId: Number(departmentId),
+    });
+  }
+
+  @Get('filteredByName/:order')
+  async getFilteredStaffDesc(
+    @Param('order') order: 'desc' | 'asc',
+  ): Promise<Employee[]> {
+    return this.employeeService.staff({
+      orderBy: {
+        name: order,
+      },
     });
   }
 

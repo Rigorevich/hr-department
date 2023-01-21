@@ -11,7 +11,6 @@ export declare class DepartmentController {
         createdAt?: Date;
     }): Promise<Department>;
     deleteDepartment(id: string): Promise<Department>;
-    getTopFiveDepartment(): Promise<void>;
     getDepartmentById(id: string): Promise<Department>;
     getAllDepartments(): Promise<Department[]>;
     getFilteredDepartments(searchString: string): Promise<Department[]>;

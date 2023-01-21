@@ -31,6 +31,13 @@ let EmployeeController = class EmployeeController {
             departmentId: Number(departmentId),
         });
     }
+    async getFilteredStaffDesc(order) {
+        return this.employeeService.staff({
+            orderBy: {
+                name: order,
+            },
+        });
+    }
     async getEmployee(id) {
         return await this.employeeService.employee({ id: Number(id) });
     }
@@ -49,12 +56,19 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "getStaff", null);
 __decorate([
-    (0, common_1.Get)('department-staff/:departmentId'),
+    (0, common_1.Get)('staff/:departmentId'),
     __param(0, (0, common_1.Param)('departmentId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "getDepartmentStaff", null);
+__decorate([
+    (0, common_1.Get)('filteredByName/:order'),
+    __param(0, (0, common_1.Param)('order')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], EmployeeController.prototype, "getFilteredStaffDesc", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
