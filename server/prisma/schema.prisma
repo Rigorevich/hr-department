@@ -1,0 +1,31 @@
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Department {
+  id    Int     @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  name String  @unique
+  description  String
+  staff Employee[]
+}
+
+model Employee {
+  id        Int      @default(autoincrement()) @id
+  name     String
+  surname   String
+  patronymic String
+  position String
+  startDate DateTime @default(now())
+  department    Department?    @relation(fields: [departmentId], references: [id])
+  departmentId  Int?
+}
+
+
+
+

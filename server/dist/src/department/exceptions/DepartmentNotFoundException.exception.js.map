@@ -1,0 +1,1 @@
+{"version":3,"file":"DepartmentNotFoundException.exception.js","sourceRoot":"","sources":["../../../../src/department/exceptions/DepartmentNotFoundException.exception.ts"],"names":[],"mappings":";;AAAA,2CAAmD;AAEnD,MAAM,2BAA4B,SAAQ,0BAAiB;IACzD,YAAY,YAAoB;QAC9B,KAAK,CAAC,sBAAsB,YAAY,YAAY,CAAC,CAAC;IACxD,CAAC;CACF;AAED,kBAAe,2BAA2B,CAAC"}
