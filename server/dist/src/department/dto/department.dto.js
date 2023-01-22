@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddDepartmentDTO = void 0;
+exports.AddEmployeeAtDepartmentDTO = exports.AddDepartmentDTO = void 0;
 const class_validator_1 = require("class-validator");
 class AddDepartmentDTO {
 }
@@ -24,4 +24,32 @@ __decorate([
     __metadata("design:type", String)
 ], AddDepartmentDTO.prototype, "description", void 0);
 exports.AddDepartmentDTO = AddDepartmentDTO;
+class AddEmployeeAtDepartmentDTO {
+}
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AddEmployeeAtDepartmentDTO.prototype, "name", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AddEmployeeAtDepartmentDTO.prototype, "surname", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AddEmployeeAtDepartmentDTO.prototype, "patronymic", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AddEmployeeAtDepartmentDTO.prototype, "position", void 0);
+__decorate([
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Number)
+], AddEmployeeAtDepartmentDTO.prototype, "departmentId", void 0);
+exports.AddEmployeeAtDepartmentDTO = AddEmployeeAtDepartmentDTO;
 //# sourceMappingURL=department.dto.js.map

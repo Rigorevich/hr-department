@@ -15,7 +15,7 @@ import { Department } from '@prisma/client';
 export class DepartmentController {
   constructor(private readonly departmentService: DepartmentService) {}
 
-  @Post('')
+  @Post('create')
   async addDepartment(
     @Body() department: AddDepartmentDTO,
   ): Promise<Department> {

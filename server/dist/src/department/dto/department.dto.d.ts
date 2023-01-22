@@ -3,3 +3,11 @@ export declare class AddDepartmentDTO {
     description: string;
     createdAt: Date;
 }
+export declare class AddEmployeeAtDepartmentDTO {
+    name: string;
+    surname: string;
+    patronymic: string;
+    position: string;
+    departmentId: number;
+    startDate: Date;
+}
