@@ -1,7 +1,12 @@
 import React from "react";
+import Department from "../components/Department";
 
 const Departments = () => {
-  return <div>Departments</div>;
+  return (
+    <div>
+      <Department />
+    </div>
+  );
 };
 
 export default Departments;

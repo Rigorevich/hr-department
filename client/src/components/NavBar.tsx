@@ -9,13 +9,17 @@ const NavBar: React.FC = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand>HR-Department</Navbar.Brand>
+        <Navbar.Brand>
+          <Link className="text-decoration-none text-black" to="/">
+            HR-Department
+          </Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto d-flex align-items-center gap-4">
             <Nav.Item className="">
-              <Link className="text-decoration-none text-black" to="">
-                Dashboard
+              <Link className="text-decoration-none text-black" to="dashboard">
+                Дэшборд
               </Link>
             </Nav.Item>
             <Nav.Item className="">
@@ -23,12 +27,12 @@ const NavBar: React.FC = () => {
                 className="text-decoration-none text-black"
                 to="departments"
               >
-                Departments
+                Отделы
               </Link>
             </Nav.Item>
             <Nav.Item className="">
               <Link className="text-decoration-none text-black" to="staff">
-                Staff
+                Сотрудники
               </Link>
             </Nav.Item>
           </Nav>
