@@ -12,16 +12,6 @@ import DepartmentNotFoundException from './exceptions/DepartmentNotFoundExceptio
 export class DepartmentService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async departments(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.DepartmentWhereUniqueInput;
-    where?: Prisma.DepartmentWhereInput;
-    orderBy?: Prisma.DepartmentOrderByWithRelationInput;
-  }): Promise<Department[]> {
-    return await this.prismaService.department.findMany({ ...params });
-  }
-
   async department(
     where: Prisma.DepartmentWhereUniqueInput,
   ): Promise<Department | null> {
@@ -34,6 +24,16 @@ export class DepartmentService {
     }
 
     return department;
+  }
+
+  async departments(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.DepartmentWhereUniqueInput;
+    where?: Prisma.DepartmentWhereInput;
+    orderBy?: Prisma.DepartmentOrderByWithRelationInput;
+  }): Promise<Department[]> {
+    return await this.prismaService.department.findMany({ ...params });
   }
 
   async addDepartment(department: AddDepartmentDTO): Promise<Department> {

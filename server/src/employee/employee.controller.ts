@@ -1,20 +1,45 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { EmployeeService } from './employee.service';
-import { AddEmployeeDTO } from './dto/employee.dto';
-import { Department, Employee } from '@prisma/client';
+import { UpdateEmployeeDTO, AddEmployeeDTO } from './dto/employee.dto';
+import { Employee } from '@prisma/client';
 
 @Controller('employee')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
 
-  @Post('create')
+  @Post('')
   async addEmployee(@Body() employee: AddEmployeeDTO): Promise<Employee> {
     return await this.employeeService.addEmployee(employee);
   }
 
-  @Get('staff')
+  @Delete('/:id')
+  async deleteDepartment(@Param('id') id: string): Promise<Employee> {
+    return await this.employeeService.deleteEmployee({ id: Number(id) });
+  }
+
+  @Get('')
   async getStaff(): Promise<Employee[]> {
     return await this.employeeService.staff({});
+  }
+
+  @Put(':id')
+  async updateEmployee(
+    @Param('id') id: string,
+    @Body()
+    employee: UpdateEmployeeDTO,
+  ): Promise<Employee> {
+    return await this.employeeService.updateEmployee({
+      where: { id: Number(id) },
+      data: { ...employee },
+    });
   }
 
   @Get('staff/:departmentId')

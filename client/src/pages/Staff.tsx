@@ -1,18 +1,25 @@
 import React from "react";
-import { useGetStaffQuery } from "../store/slices/employeeAPISlice";
-import Table from "react-bootstrap/Table";
-import Employee from "../components/Employee";
 import EmployeeList from "../components/EmployeeList";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import LoadingSpin from "../components/LoadingSpin";
+
+import { useGetStaffQuery } from "../store";
 
 const Staff = () => {
   const { data = [], isLoading } = useGetStaffQuery("");
 
   return isLoading ? (
-    <div>
-      <h3>Loading...</h3>
-    </div>
+    <LoadingSpin />
   ) : (
-    <EmployeeList data={data} />
+    <Container className="mt-3">
+      <div className="d-flex gap-4 mb-3">
+        <Button variant="success">Добавить сотрудника</Button>
+        <Button variant="primary">Редактировать данные сотрудника</Button>
+        <Button variant="danger">Удалить сотрудника из системы</Button>
+      </div>
+      <EmployeeList data={data} />
+    </Container>
   );
 };
 

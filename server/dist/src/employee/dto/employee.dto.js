@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddEmployeeDTO = void 0;
+exports.UpdateEmployeeDTO = exports.AddEmployeeDTO = void 0;
 const class_validator_1 = require("class-validator");
 class AddEmployeeDTO {
 }
@@ -39,4 +39,7 @@ __decorate([
     __metadata("design:type", Number)
 ], AddEmployeeDTO.prototype, "departmentId", void 0);
 exports.AddEmployeeDTO = AddEmployeeDTO;
+class UpdateEmployeeDTO {
+}
+exports.UpdateEmployeeDTO = UpdateEmployeeDTO;
 //# sourceMappingURL=employee.dto.js.map

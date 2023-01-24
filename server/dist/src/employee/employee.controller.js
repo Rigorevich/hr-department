@@ -23,8 +23,17 @@ let EmployeeController = class EmployeeController {
     async addEmployee(employee) {
         return await this.employeeService.addEmployee(employee);
     }
+    async deleteDepartment(id) {
+        return await this.employeeService.deleteEmployee({ id: Number(id) });
+    }
     async getStaff() {
         return await this.employeeService.staff({});
+    }
+    async updateEmployee(id, employee) {
+        return await this.employeeService.updateEmployee({
+            where: { id: Number(id) },
+            data: Object.assign({}, employee),
+        });
     }
     async getDepartmentStaff(departmentId) {
         return await this.employeeService.departmentStaff({
@@ -43,18 +52,33 @@ let EmployeeController = class EmployeeController {
     }
 };
 __decorate([
-    (0, common_1.Post)('create'),
+    (0, common_1.Post)(''),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [employee_dto_1.AddEmployeeDTO]),
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "addEmployee", null);
 __decorate([
-    (0, common_1.Get)('staff'),
+    (0, common_1.Delete)('/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], EmployeeController.prototype, "deleteDepartment", null);
+__decorate([
+    (0, common_1.Get)(''),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "getStaff", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, employee_dto_1.UpdateEmployeeDTO]),
+    __metadata("design:returntype", Promise)
+], EmployeeController.prototype, "updateEmployee", null);
 __decorate([
     (0, common_1.Get)('staff/:departmentId'),
     __param(0, (0, common_1.Param)('departmentId')),

@@ -12,6 +12,11 @@ export declare class EmployeeService {
         orderBy?: Prisma.EmployeeOrderByWithRelationInput;
     }): Promise<Employee[]>;
     departmentStaff(where?: Prisma.EmployeeWhereInput): Promise<Employee[]>;
+    updateEmployee(params: {
+        where: Prisma.EmployeeWhereUniqueInput;
+        data: Prisma.EmployeeUpdateInput;
+    }): Promise<Employee>;
+    deleteEmployee(where: Prisma.EmployeeWhereUniqueInput): Promise<Employee | null>;
     employee(where: Prisma.EmployeeWhereUniqueInput): Promise<Employee | null>;
     addEmployee(employee: AddEmployeeDTO): Promise<Employee>;
 }

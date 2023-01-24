@@ -23,6 +23,10 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], AddDepartmentDTO.prototype, "description", void 0);
+__decorate([
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Number)
+], AddDepartmentDTO.prototype, "bossId", void 0);
 exports.AddDepartmentDTO = AddDepartmentDTO;
 class AddEmployeeAtDepartmentDTO {
 }
@@ -46,10 +50,5 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], AddEmployeeAtDepartmentDTO.prototype, "position", void 0);
-__decorate([
-    (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
-], AddEmployeeAtDepartmentDTO.prototype, "departmentId", void 0);
 exports.AddEmployeeAtDepartmentDTO = AddEmployeeAtDepartmentDTO;
 //# sourceMappingURL=department.dto.js.map

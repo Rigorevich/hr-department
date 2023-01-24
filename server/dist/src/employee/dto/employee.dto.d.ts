@@ -4,5 +4,12 @@ export declare class AddEmployeeDTO {
     patronymic: string;
     position: string;
     departmentId: number;
-    startDate: Date;
+    startDate?: Date;
+}
+export declare class UpdateEmployeeDTO {
+    name?: string;
+    surname?: string;
+    patronymic?: string;
+    position?: string;
+    departmentId?: number;
 }

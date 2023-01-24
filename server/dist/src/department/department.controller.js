@@ -20,7 +20,7 @@ let DepartmentController = class DepartmentController {
     constructor(departmentService) {
         this.departmentService = departmentService;
     }
-    async addDepartment(department) {
+    async createDepartment(department) {
         return await this.departmentService.addDepartment(department);
     }
     async updateDepartment(id, department) {
@@ -54,14 +54,14 @@ let DepartmentController = class DepartmentController {
     }
 };
 __decorate([
-    (0, common_1.Post)('create'),
+    (0, common_1.Post)(''),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [department_dto_1.AddDepartmentDTO]),
     __metadata("design:returntype", Promise)
-], DepartmentController.prototype, "addDepartment", null);
+], DepartmentController.prototype, "createDepartment", null);
 __decorate([
-    (0, common_1.Put)('update/:id'),
+    (0, common_1.Put)('/:id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -69,7 +69,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DepartmentController.prototype, "updateDepartment", null);
 __decorate([
-    (0, common_1.Delete)('delete/:id'),
+    (0, common_1.Delete)('/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

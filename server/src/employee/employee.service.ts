@@ -27,6 +27,29 @@ export class EmployeeService {
     });
   }
 
+  async updateEmployee(params: {
+    where: Prisma.EmployeeWhereUniqueInput;
+    data: Prisma.EmployeeUpdateInput;
+  }): Promise<Employee> {
+    const { data, where } = params;
+    return this.prismaService.employee.update({
+      data,
+      where,
+    });
+  }
+
+  async deleteEmployee(
+    where: Prisma.EmployeeWhereUniqueInput,
+  ): Promise<Employee | null> {
+    const employee = await this.prismaService.employee.delete({ where });
+
+    if (!employee) {
+      throw new EmployeeNotFoundException(where.id);
+    }
+
+    return employee;
+  }
+
   async employee(
     where: Prisma.EmployeeWhereUniqueInput,
   ): Promise<Employee | null> {

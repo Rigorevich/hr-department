@@ -1,6 +1,11 @@
 import React from "react";
-import { useGetAllDepartmentsQuery } from "../store";
+import Container from "react-bootstrap/Container";
+import Spinner from "react-bootstrap/Spinner";
 import DepartmentList from "../components/DepartmentList";
+import Button from "react-bootstrap/Button";
+import LoadingSpin from "../components/LoadingSpin";
+
+import { useGetAllDepartmentsQuery } from "../store";
 
 const Departments = () => {
   const { data = [], isLoading } = useGetAllDepartmentsQuery("");
@@ -8,13 +13,15 @@ const Departments = () => {
   console.log(data);
 
   return isLoading ? (
-    <div>
-      <h2>Loading...</h2>
-    </div>
+    <LoadingSpin />
   ) : (
-    <div className="d-flex flex-column gap-3 mt-3">
+    <Container className="d-flex flex-column gap-3 mt-3">
+      <div className="d-flex gap-4 mb-1">
+        <Button variant="success">Добавить отдел</Button>
+        <Button variant="danger">Удалить отдел</Button>
+      </div>
       <DepartmentList data={data} />
-    </div>
+    </Container>
   );
 };
 

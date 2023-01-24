@@ -15,6 +15,9 @@ export class AddDepartmentDTO {
   @IsNotEmpty()
   description: string;
 
+  @IsNumber()
+  bossId: number;
+
   createdAt: Date;
 }
 
@@ -35,8 +38,6 @@ export class AddEmployeeAtDepartmentDTO {
   @IsNotEmpty()
   position: string;
 
-  @IsNumber()
-  @IsNotEmpty()
   departmentId: number;
 
   startDate: Date;

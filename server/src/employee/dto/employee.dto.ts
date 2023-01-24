@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsDate,
-  IsDateString,
-  IsNumber,
-} from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class AddEmployeeDTO {
   @IsString()
@@ -27,5 +21,13 @@ export class AddEmployeeDTO {
   @IsNotEmpty()
   departmentId: number;
 
-  startDate: Date;
+  startDate?: Date;
+}
+
+export class UpdateEmployeeDTO {
+  name?: string;
+  surname?: string;
+  patronymic?: string;
+  position?: string;
+  departmentId?: number;
 }

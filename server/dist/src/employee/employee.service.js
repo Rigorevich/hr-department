@@ -25,6 +25,20 @@ let EmployeeService = class EmployeeService {
             where,
         });
     }
+    async updateEmployee(params) {
+        const { data, where } = params;
+        return this.prismaService.employee.update({
+            data,
+            where,
+        });
+    }
+    async deleteEmployee(where) {
+        const employee = await this.prismaService.employee.delete({ where });
+        if (!employee) {
+            throw new EmployeeNotFoundException_exception_1.default(where.id);
+        }
+        return employee;
+    }
     async employee(where) {
         const employee = await this.prismaService.employee.findUnique({
             where,

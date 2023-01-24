@@ -10,19 +10,22 @@ generator client {
 model Department {
   id    Int     @default(autoincrement()) @id
   createdAt DateTime @default(now())
-  name String  @unique
+  name String @db.VarChar(55)  @unique
   description  String
-  staff Employee[]
+  staff Employee[] @relation("Staff")
+  boss Employee @relation("Boss", fields: [bossId], references: [id])
+  bossId Int @unique
 }
 
 model Employee {
   id        Int      @default(autoincrement()) @id
-  name     String
-  surname   String
-  patronymic String
-  position String
+  name     String   @db.VarChar(255)
+  surname   String  @db.VarChar(255)
+  patronymic String @db.VarChar(255)
+  position String   @db.VarChar(255)
   startDate DateTime @default(now())
-  department    Department?    @relation(fields: [departmentId], references: [id])
+  department    Department?    @relation(name: "Staff", fields: [departmentId], references: [id])
+  ownedDepartment    Department?    @relation(name: "Boss")
   departmentId  Int?
 }
 

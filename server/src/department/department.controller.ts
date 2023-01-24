@@ -15,18 +15,23 @@ import { Department } from '@prisma/client';
 export class DepartmentController {
   constructor(private readonly departmentService: DepartmentService) {}
 
-  @Post('create')
-  async addDepartment(
+  @Post('')
+  async createDepartment(
     @Body() department: AddDepartmentDTO,
   ): Promise<Department> {
     return await this.departmentService.addDepartment(department);
   }
 
-  @Put('update/:id')
+  @Put('/:id')
   async updateDepartment(
     @Param('id') id: string,
     @Body()
-    department: { name?: string; description?: string; createdAt?: Date },
+    department: {
+      name?: string;
+      description?: string;
+      createdAt?: Date;
+      bossId?: number;
+    },
   ): Promise<Department> {
     return this.departmentService.updateDepartment({
       where: { id: Number(id) },
@@ -34,7 +39,7 @@ export class DepartmentController {
     });
   }
 
-  @Delete('delete/:id')
+  @Delete('/:id')
   async deleteDepartment(@Param('id') id: string): Promise<Department> {
     return await this.departmentService.deleteDepartment({ id: Number(id) });
   }

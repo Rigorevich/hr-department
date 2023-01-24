@@ -9,7 +9,7 @@ export const employeeApi = createApi({
       query: (id) => `employee/${id}`,
     }),
     getStaff: builder.query<IEmployee[], string>({
-      query: (url = "") => `employee/staff`,
+      query: (url = "") => `employee/`,
     }),
     getStaffByDepartment: builder.query<IEmployee[], string>({
       query: (id) => `employee/staff/${id}`,

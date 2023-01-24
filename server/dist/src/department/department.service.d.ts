@@ -4,6 +4,7 @@ import { AddDepartmentDTO } from './dto/department.dto';
 export declare class DepartmentService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
+    department(where: Prisma.DepartmentWhereUniqueInput): Promise<Department | null>;
     departments(params: {
         skip?: number;
         take?: number;
@@ -11,7 +12,6 @@ export declare class DepartmentService {
         where?: Prisma.DepartmentWhereInput;
         orderBy?: Prisma.DepartmentOrderByWithRelationInput;
     }): Promise<Department[]>;
-    department(where: Prisma.DepartmentWhereUniqueInput): Promise<Department | null>;
     addDepartment(department: AddDepartmentDTO): Promise<Department>;
     updateDepartment(params: {
         where: Prisma.DepartmentWhereUniqueInput;

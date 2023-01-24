@@ -17,9 +17,6 @@ let DepartmentService = class DepartmentService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    async departments(params) {
-        return await this.prismaService.department.findMany(Object.assign({}, params));
-    }
     async department(where) {
         const department = await this.prismaService.department.findUnique({
             where,
@@ -28,6 +25,9 @@ let DepartmentService = class DepartmentService {
             throw new DepartmentNotFoundException_exception_1.default(where.id);
         }
         return department;
+    }
+    async departments(params) {
+        return await this.prismaService.department.findMany(Object.assign({}, params));
     }
     async addDepartment(department) {
         return await this.prismaService.department.create({
