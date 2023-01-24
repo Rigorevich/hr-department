@@ -1,7 +1,7 @@
 import React from "react";
 
 const EmployeePage = () => {
-  return <div></div>;
+  return <div>I tebe Privet</div>;
 };
 
 export default EmployeePage;

@@ -1,25 +1,29 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import { IDepartment } from "../types/types";
+import React from "react";
 
-function Department() {
+const Department: React.FC<IDepartment> = ({
+  id,
+  name,
+  description,
+  createdAt,
+}) => {
   const navigate = useNavigate();
 
   return (
     <Card className="text-center">
       <Card.Body>
-        <Card.Title>Бухгалтерия</Card.Title>
-        <Card.Text>
-          Учет движения и складирования материалов, сырья, готовых товаров, ГСМ
-          и других активов.
-        </Card.Text>
-        <Button variant="primary" onClick={() => navigate(`2`)}>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <Button variant="primary" onClick={() => navigate(`${id}`)}>
           Перейти на страницу отдела
         </Button>
       </Card.Body>
       <Card.Footer className="text-muted">2 days ago</Card.Footer>
     </Card>
   );
-}
+};
 
 export default Department;

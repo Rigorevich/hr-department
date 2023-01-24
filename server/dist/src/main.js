@@ -7,6 +7,7 @@ async function startServer() {
     try {
         const PORT = process.env.PORT || 7000;
         const app = await core_1.NestFactory.create(app_module_1.AppModule);
+        app.enableCors();
         app.useGlobalPipes(new common_1.ValidationPipe({ whitelist: true }));
         await app.listen(PORT);
     }

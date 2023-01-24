@@ -1,4 +1,5 @@
 export interface IEmployee {
+  id: number;
   name: string;
   surname: string;
   patronymic: string;
@@ -8,6 +9,7 @@ export interface IEmployee {
 }
 
 export interface IDepartment {
+  id: number;
   name: string;
   description: string;
   createdAt: Date;
