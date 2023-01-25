@@ -1,14 +1,10 @@
-export declare class AddDepartmentDTO {
+export declare class CreateDepartmentDTO {
     name: string;
     description: string;
-    bossId: number;
-    createdAt: Date;
+    bossId?: number;
+    createdAt?: Date;
 }
-export declare class AddEmployeeAtDepartmentDTO {
-    name: string;
-    surname: string;
-    patronymic: string;
-    position: string;
+export declare class AssignBossDTO {
     departmentId: number;
-    startDate: Date;
+    employeeId: number;
 }

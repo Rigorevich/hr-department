@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
-export class AddEmployeeDTO {
+export class CreateEmployeeDTO {
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -17,17 +17,17 @@ export class AddEmployeeDTO {
   @IsNotEmpty()
   position: string;
 
-  @IsNumber()
-  @IsNotEmpty()
-  departmentId: number;
+  departmentId?: number;
 
   startDate?: Date;
 }
 
-export class UpdateEmployeeDTO {
-  name?: string;
-  surname?: string;
-  patronymic?: string;
-  position?: string;
-  departmentId?: number;
+export class AddEmployeeToDepartmentDTO {
+  @IsNumber()
+  @IsNotEmpty()
+  employeeId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  departmentId: number;
 }

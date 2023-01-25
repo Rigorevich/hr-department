@@ -32,12 +32,6 @@ let DepartmentController = class DepartmentController {
     async deleteDepartment(id) {
         return await this.departmentService.deleteDepartment({ id: Number(id) });
     }
-    async getDepartmentById(id) {
-        return await this.departmentService.department({ id: Number(id) });
-    }
-    async getAllDepartments() {
-        return await this.departmentService.departments({});
-    }
     async getFilteredDepartments(searchString) {
         return this.departmentService.departments({
             where: {
@@ -57,7 +51,7 @@ __decorate([
     (0, common_1.Post)(''),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [department_dto_1.AddDepartmentDTO]),
+    __metadata("design:paramtypes", [department_dto_1.CreateDepartmentDTO]),
     __metadata("design:returntype", Promise)
 ], DepartmentController.prototype, "createDepartment", null);
 __decorate([
@@ -75,19 +69,6 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], DepartmentController.prototype, "deleteDepartment", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Promise)
-], DepartmentController.prototype, "getDepartmentById", null);
-__decorate([
-    (0, common_1.Get)(''),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], DepartmentController.prototype, "getAllDepartments", null);
 __decorate([
     (0, common_1.Get)('filtered/:searchString'),
     __param(0, (0, common_1.Param)('searchString')),

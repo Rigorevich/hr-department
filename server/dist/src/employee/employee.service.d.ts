@@ -1,22 +1,18 @@
 import { PrismaService } from '../../prisma/prisma.service';
 import { Employee, Prisma } from '@prisma/client';
-import { AddEmployeeDTO } from './dto/employee.dto';
+import { AddEmployeeToDepartmentDTO, CreateEmployeeDTO } from './dto/employee.dto';
 export declare class EmployeeService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    staff(params: {
+    staff(params?: {
         skip?: number;
         take?: number;
         cursor?: Prisma.EmployeeWhereUniqueInput;
         where?: Prisma.EmployeeWhereInput;
         orderBy?: Prisma.EmployeeOrderByWithRelationInput;
     }): Promise<Employee[]>;
-    departmentStaff(where?: Prisma.EmployeeWhereInput): Promise<Employee[]>;
-    updateEmployee(params: {
-        where: Prisma.EmployeeWhereUniqueInput;
-        data: Prisma.EmployeeUpdateInput;
-    }): Promise<Employee>;
-    deleteEmployee(where: Prisma.EmployeeWhereUniqueInput): Promise<Employee | null>;
     employee(where: Prisma.EmployeeWhereUniqueInput): Promise<Employee | null>;
-    addEmployee(employee: AddEmployeeDTO): Promise<Employee>;
+    addEmployeeToDepartment(body: AddEmployeeToDepartmentDTO): Promise<Employee>;
+    deleteEmployee(where: Prisma.EmployeeWhereUniqueInput): Promise<Employee | null>;
+    addEmployee(employee: CreateEmployeeDTO): Promise<Employee>;
 }

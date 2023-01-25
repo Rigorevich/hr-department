@@ -13,5 +13,6 @@ export interface IDepartment {
   name: string;
   description: string;
   createdAt: Date;
+  bossId: number;
   staff: IEmployee[];
 }

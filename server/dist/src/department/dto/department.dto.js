@@ -9,46 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddEmployeeAtDepartmentDTO = exports.AddDepartmentDTO = void 0;
+exports.AssignBossDTO = exports.CreateDepartmentDTO = void 0;
 const class_validator_1 = require("class-validator");
-class AddDepartmentDTO {
+class CreateDepartmentDTO {
 }
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AddDepartmentDTO.prototype, "name", void 0);
+], CreateDepartmentDTO.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AddDepartmentDTO.prototype, "description", void 0);
+], CreateDepartmentDTO.prototype, "description", void 0);
+exports.CreateDepartmentDTO = CreateDepartmentDTO;
+class AssignBossDTO {
+}
 __decorate([
     (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
-], AddDepartmentDTO.prototype, "bossId", void 0);
-exports.AddDepartmentDTO = AddDepartmentDTO;
-class AddEmployeeAtDepartmentDTO {
-}
+], AssignBossDTO.prototype, "departmentId", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], AddEmployeeAtDepartmentDTO.prototype, "name", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], AddEmployeeAtDepartmentDTO.prototype, "surname", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], AddEmployeeAtDepartmentDTO.prototype, "patronymic", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], AddEmployeeAtDepartmentDTO.prototype, "position", void 0);
-exports.AddEmployeeAtDepartmentDTO = AddEmployeeAtDepartmentDTO;
+    __metadata("design:type", Number)
+], AssignBossDTO.prototype, "employeeId", void 0);
+exports.AssignBossDTO = AssignBossDTO;
 //# sourceMappingURL=department.dto.js.map

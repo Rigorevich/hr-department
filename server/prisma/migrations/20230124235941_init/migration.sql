@@ -4,7 +4,7 @@ CREATE TABLE "Department" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "name" VARCHAR(55) NOT NULL,
     "description" TEXT NOT NULL,
-    "bossId" INTEGER NOT NULL,
+    "bossId" INTEGER,
 
     CONSTRAINT "Department_pkey" PRIMARY KEY ("id")
 );
@@ -29,7 +29,7 @@ CREATE UNIQUE INDEX "Department_name_key" ON "Department"("name");
 CREATE UNIQUE INDEX "Department_bossId_key" ON "Department"("bossId");
 
 -- AddForeignKey
-ALTER TABLE "Department" ADD CONSTRAINT "Department_bossId_fkey" FOREIGN KEY ("bossId") REFERENCES "Employee"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Department" ADD CONSTRAINT "Department_bossId_fkey" FOREIGN KEY ("bossId") REFERENCES "Employee"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Employee" ADD CONSTRAINT "Employee_departmentId_fkey" FOREIGN KEY ("departmentId") REFERENCES "Department"("id") ON DELETE SET NULL ON UPDATE CASCADE;

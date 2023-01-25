@@ -26,7 +26,7 @@ let DepartmentService = class DepartmentService {
         }
         return department;
     }
-    async departments(params) {
+    async departments(params = {}) {
         return await this.prismaService.department.findMany(Object.assign({}, params));
     }
     async addDepartment(department) {
@@ -34,11 +34,14 @@ let DepartmentService = class DepartmentService {
             data: department,
         });
     }
-    async updateDepartment(params) {
-        const { data, where } = params;
+    async assignBoss(body) {
         return this.prismaService.department.update({
-            data,
-            where,
+            data: {
+                bossId: body.employeeId,
+            },
+            where: {
+                id: body.departmentId,
+            },
         });
     }
     async deleteDepartment(where) {

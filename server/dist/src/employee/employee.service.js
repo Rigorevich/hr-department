@@ -17,32 +17,30 @@ let EmployeeService = class EmployeeService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    async staff(params) {
+    async staff(params = {}) {
         return await this.prismaService.employee.findMany(Object.assign({}, params));
-    }
-    async departmentStaff(where) {
-        return await this.prismaService.employee.findMany({
-            where,
-        });
-    }
-    async updateEmployee(params) {
-        const { data, where } = params;
-        return this.prismaService.employee.update({
-            data,
-            where,
-        });
-    }
-    async deleteEmployee(where) {
-        const employee = await this.prismaService.employee.delete({ where });
-        if (!employee) {
-            throw new EmployeeNotFoundException_exception_1.default(where.id);
-        }
-        return employee;
     }
     async employee(where) {
         const employee = await this.prismaService.employee.findUnique({
             where,
         });
+        if (!employee) {
+            throw new EmployeeNotFoundException_exception_1.default(where.id);
+        }
+        return employee;
+    }
+    async addEmployeeToDepartment(body) {
+        return this.prismaService.employee.update({
+            where: {
+                id: body.employeeId,
+            },
+            data: {
+                departmentId: body.departmentId,
+            },
+        });
+    }
+    async deleteEmployee(where) {
+        const employee = await this.prismaService.employee.delete({ where });
         if (!employee) {
             throw new EmployeeNotFoundException_exception_1.default(where.id);
         }

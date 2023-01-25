@@ -10,8 +10,6 @@ import { useGetAllDepartmentsQuery } from "../store";
 const Departments = () => {
   const { data = [], isLoading } = useGetAllDepartmentsQuery("");
 
-  console.log(data);
-
   return isLoading ? (
     <LoadingSpin />
   ) : (

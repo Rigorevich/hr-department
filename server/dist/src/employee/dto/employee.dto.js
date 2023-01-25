@@ -9,37 +9,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateEmployeeDTO = exports.AddEmployeeDTO = void 0;
+exports.AddEmployeeToDepartmentDTO = exports.CreateEmployeeDTO = void 0;
 const class_validator_1 = require("class-validator");
-class AddEmployeeDTO {
+class CreateEmployeeDTO {
 }
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AddEmployeeDTO.prototype, "name", void 0);
+], CreateEmployeeDTO.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AddEmployeeDTO.prototype, "surname", void 0);
+], CreateEmployeeDTO.prototype, "surname", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AddEmployeeDTO.prototype, "patronymic", void 0);
+], CreateEmployeeDTO.prototype, "patronymic", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AddEmployeeDTO.prototype, "position", void 0);
+], CreateEmployeeDTO.prototype, "position", void 0);
+exports.CreateEmployeeDTO = CreateEmployeeDTO;
+class AddEmployeeToDepartmentDTO {
+}
 __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
-], AddEmployeeDTO.prototype, "departmentId", void 0);
-exports.AddEmployeeDTO = AddEmployeeDTO;
-class UpdateEmployeeDTO {
-}
-exports.UpdateEmployeeDTO = UpdateEmployeeDTO;
+], AddEmployeeToDepartmentDTO.prototype, "employeeId", void 0);
+__decorate([
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Number)
+], AddEmployeeToDepartmentDTO.prototype, "departmentId", void 0);
+exports.AddEmployeeToDepartmentDTO = AddEmployeeToDepartmentDTO;
 //# sourceMappingURL=employee.dto.js.map

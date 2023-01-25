@@ -1,13 +1,13 @@
 import React from "react";
 import Employee from "./Employee";
 import Table from "react-bootstrap/Table";
-import { IEmployee } from "../types/types";
+import { IDepartment, IEmployee } from "../types/types";
 
 interface IEmployeeData {
-  data: IEmployee[];
+  staff: IEmployee[];
 }
 
-const EmployeeList: React.FC<IEmployeeData> = ({ data }) => {
+const EmployeeList: React.FC<IEmployeeData> = ({ staff }) => {
   return (
     <>
       <Table striped bordered hover size="sm">
@@ -22,7 +22,7 @@ const EmployeeList: React.FC<IEmployeeData> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((employee, order) => {
+          {staff.map((employee, order) => {
             return (
               <Employee key={employee.id} order={order + 1} {...employee} />
             );

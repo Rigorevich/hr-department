@@ -6,7 +6,7 @@ import {
   IsNumber,
 } from 'class-validator';
 
-export class AddDepartmentDTO {
+export class CreateDepartmentDTO {
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -15,30 +15,17 @@ export class AddDepartmentDTO {
   @IsNotEmpty()
   description: string;
 
-  @IsNumber()
-  bossId: number;
+  bossId?: number;
 
-  createdAt: Date;
+  createdAt?: Date;
 }
 
-export class AddEmployeeAtDepartmentDTO {
-  @IsString()
+export class AssignBossDTO {
+  @IsNumber()
   @IsNotEmpty()
-  name: string;
-
-  @IsString()
-  @IsNotEmpty()
-  surname: string;
-
-  @IsString()
-  @IsNotEmpty()
-  patronymic: string;
-
-  @IsString()
-  @IsNotEmpty()
-  position: string;
-
   departmentId: number;
 
-  startDate: Date;
+  @IsNumber()
+  @IsNotEmpty()
+  employeeId: number;
 }

@@ -18,7 +18,7 @@ const Staff = () => {
         <Button variant="primary">Редактировать данные сотрудника</Button>
         <Button variant="danger">Удалить сотрудника из системы</Button>
       </div>
-      <EmployeeList data={data} />
+      <EmployeeList staff={data} />
     </Container>
   );
 };

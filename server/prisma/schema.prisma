@@ -13,8 +13,8 @@ model Department {
   name String @db.VarChar(55)  @unique
   description  String
   staff Employee[] @relation("Staff")
-  boss Employee @relation("Boss", fields: [bossId], references: [id])
-  bossId Int @unique
+  boss Employee? @relation("Boss", fields: [bossId], references: [id])
+  bossId Int? @unique
 }
 
 model Employee {

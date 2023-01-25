@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { Department, Employee, Prisma } from '@prisma/client';
-import {
-  AddDepartmentDTO,
-  AddEmployeeAtDepartmentDTO,
-} from './dto/department.dto';
+import { Department, Prisma } from '@prisma/client';
+import { CreateDepartmentDTO, AssignBossDTO } from './dto/department.dto';
 
 import DepartmentNotFoundException from './exceptions/DepartmentNotFoundException.exception';
 
@@ -26,30 +23,32 @@ export class DepartmentService {
     return department;
   }
 
-  async departments(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.DepartmentWhereUniqueInput;
-    where?: Prisma.DepartmentWhereInput;
-    orderBy?: Prisma.DepartmentOrderByWithRelationInput;
-  }): Promise<Department[]> {
+  async departments(
+    params: {
+      skip?: number;
+      take?: number;
+      cursor?: Prisma.DepartmentWhereUniqueInput;
+      where?: Prisma.DepartmentWhereInput;
+      orderBy?: Prisma.DepartmentOrderByWithRelationInput;
+    } = {},
+  ): Promise<Department[]> {
     return await this.prismaService.department.findMany({ ...params });
   }
 
-  async addDepartment(department: AddDepartmentDTO): Promise<Department> {
+  async addDepartment(department: CreateDepartmentDTO): Promise<Department> {
     return await this.prismaService.department.create({
       data: department,
     });
   }
 
-  async updateDepartment(params: {
-    where: Prisma.DepartmentWhereUniqueInput;
-    data: Prisma.DepartmentUpdateInput;
-  }): Promise<Department> {
-    const { data, where } = params;
+  async assignBoss(body: AssignBossDTO): Promise<Department> {
     return this.prismaService.department.update({
-      data,
-      where,
+      data: {
+        bossId: body.employeeId,
+      },
+      where: {
+        id: body.departmentId,
+      },
     });
   }
 

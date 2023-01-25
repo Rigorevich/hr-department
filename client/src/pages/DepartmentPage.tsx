@@ -19,13 +19,13 @@ const DepartmentPage: React.FC = () => {
     <Container className="d-flex flex-column gap-2 mt-5">
       <div>Название отдела: {department?.name}</div>
       <div>Описание: {department?.description} </div>
-      <div>Глава отдела: Илья</div>
+      <div>Глава отдела:</div>
       <div className="d-flex gap-4">
         <Button variant="success">Добавить сотрудника</Button>
         <Button variant="primary">Редактировать отдел</Button>
         <Button variant="danger">Удалить отдел</Button>
       </div>
-      <EmployeeList data={staff} />
+      <EmployeeList staff={staff} />
     </Container>
   );
 };

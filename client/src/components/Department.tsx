@@ -8,6 +8,7 @@ const Department: React.FC<IDepartment> = ({
   id,
   name,
   description,
+  bossId,
   createdAt,
 }) => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Department: React.FC<IDepartment> = ({
           Перейти на страницу отдела
         </Button>
       </Card.Body>
-      <Card.Footer className="text-muted">2 days ago</Card.Footer>
+      <Card.Footer className="text-muted">{createdAt.toString()}</Card.Footer>
     </Card>
   );
 };

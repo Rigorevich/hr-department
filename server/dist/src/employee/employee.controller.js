@@ -26,9 +26,6 @@ let EmployeeController = class EmployeeController {
     async deleteDepartment(id) {
         return await this.employeeService.deleteEmployee({ id: Number(id) });
     }
-    async getStaff() {
-        return await this.employeeService.staff({});
-    }
     async updateEmployee(id, employee) {
         return await this.employeeService.updateEmployee({
             where: { id: Number(id) },
@@ -47,15 +44,12 @@ let EmployeeController = class EmployeeController {
             },
         });
     }
-    async getEmployee(id) {
-        return await this.employeeService.employee({ id: Number(id) });
-    }
 };
 __decorate([
     (0, common_1.Post)(''),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [employee_dto_1.AddEmployeeDTO]),
+    __metadata("design:paramtypes", [employee_dto_1.CreateEmployeeDTO]),
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "addEmployee", null);
 __decorate([
@@ -65,12 +59,6 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "deleteDepartment", null);
-__decorate([
-    (0, common_1.Get)(''),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], EmployeeController.prototype, "getStaff", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),
@@ -93,13 +81,6 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], EmployeeController.prototype, "getFilteredStaffDesc", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Promise)
-], EmployeeController.prototype, "getEmployee", null);
 EmployeeController = __decorate([
     (0, common_1.Controller)('employee'),
     __metadata("design:paramtypes", [employee_service_1.EmployeeService])
